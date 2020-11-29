@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t didstopia/terraria:latest .
+docker build -t cruseida/terraria:latest .

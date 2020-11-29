@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker push didstopia/terraria:latest
+docker push cruseida/terraria:latest
