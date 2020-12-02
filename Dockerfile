@@ -3,7 +3,7 @@
 
 # Build TShock
 FROM mono:6.8 AS tshock
-LABEL maintainer="Didstopia <support@didstopia.com>"
+LABEL maintainer="cruseida"
 ENV TSHOCK_VERSION=v4.4.0-pre15
 ENV BUILD_MODE=Release
 RUN apt-get update && \
@@ -27,7 +27,7 @@ RUN nuget restore ./TerrariaServerAPI/ && \
 
 # Build Terracord
 FROM mono:6.8 AS terracord
-LABEL maintainer="Didstopia <support@didstopia.com>"
+LABEL maintainer="cruseida"
 ENV BUILD_MODE=Release
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -36,7 +36,7 @@ RUN apt-get update && \
     nuget update -self
 RUN git clone --recurse-submodules -j8 --depth 1 --branch master https://github.com/FragLand/terracord.git /app && \
     cd /app && \
-    git checkout f034948040889602095053b8e401d8b4efef3c83
+    git checkout e4b0adc7df8959cb7d86a2ae0b8f15fe5278f657
 WORKDIR /app
 RUN mkdir -p /app/lib
 COPY --from=tshock /app/TShockAPI/bin/${BUILD_MODE}/ /app/lib/
@@ -44,7 +44,7 @@ RUN nuget restore && \
     msbuild /p:Configuration=${BUILD_MODE},TargetFrameworks=net46 Terracord/Terracord.csproj
 
 FROM mono:6.8
-LABEL maintainer="Didstopia <support@didstopia.com>"
+LABEL maintainer="cruseida"
 ENV BUILD_MODE=Release
 ENV CONFIG_PATH=/tshock/worlds
 ENV LOG_PATH=/tshock/logs
