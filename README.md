@@ -1,5 +1,10 @@
-# Terraria server that runs inside a Docker container
+# terraria server with tshock running on docker container
 
-This Docker image combines TShock and Terracord in a single, configurable image.
+forked from https://github.com/Didstopia/terraria-server
 
-This project is partially based on [ryansheehan's image](https://github.com/ryansheehan/terraria).
+backup.sh 
+  - simple quick script to back up world and tshock ssc data and uploads it to discord using [discord.sh](https://github.com/ChaoticWeg/discord.sh) and a [webhook bot](https://discordjs.guide/popular-topics/webhooks.html). 
+  
+  
+
+
